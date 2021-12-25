@@ -14,3 +14,15 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.star-icon {
+  height: '30px';
+  width: '30px';
+  cursor: 'pointer';
+  fill: '#f59e0c' !important;
+  color: 'f59e0c' !important;
+}
+
+.star-icon:hover {
+  fill: '#f59e0c'
+}
