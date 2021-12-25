@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Styling, testing and building your project before committing'
+
+# check tsconfig standards
+yarn check-types ||
+(
+  echo 'Failed type checked';
+  false;
+)
+
+yarn check-types ||
+(
+  echo 'Your styling looks disgusting, Prettier Check Failed, Run yarn format';
+  false;
+)
+
+yarn check-lint ||
+(
+  echo 'Eslint check failed';
+  false;
+)
+
+# If everything passes, you can go ahead and run build
+echo 'Code looks good.'
+

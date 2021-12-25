@@ -1,7 +1,7 @@
-import type { NextPage } from 'next';
+import type {NextPage} from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { Box, Stack } from '@chakra-ui/react';
+import {Box, Stack} from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
 import Products from '../components/products/products';
 import AppFooter from '../components/common/AppFooter';
@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <AppFooter />
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -1,10 +1,10 @@
 import React from 'react';
-import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/provider';
-import { ButtonStyles as Button } from '../components/common/ButtonStyles';
+import type {AppProps} from 'next/app';
+import {ChakraProvider} from '@chakra-ui/provider';
+import {ButtonStyles as Button} from '../components/common/ButtonStyles';
 
 // 1. Import the extendTheme function
-import { extendTheme } from '@chakra-ui/react'
+import {extendTheme} from '@chakra-ui/react';
 
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -18,15 +18,15 @@ const colors = {
 
 const components = {
   Button,
-}
+};
 
-const theme = extendTheme({ colors, components });
+const theme = extendTheme({colors, components});
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({Component, pageProps}: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
-  )
+  );
 }
