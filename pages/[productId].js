@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
 import {Container, Box, SimpleGrid} from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
 import products from '../products.json';

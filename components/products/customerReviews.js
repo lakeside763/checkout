@@ -1,3 +1,4 @@
+import React from 'react';
 import {Box, Flex, Heading, Text} from '@chakra-ui/react';
 import {FiMessageSquare, FiStar} from 'react-icons/fi';
 import {useProduct} from '../../hooks/useProduct';
