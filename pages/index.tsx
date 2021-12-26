@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         <AppFooter />
       </Stack>
     </Box>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

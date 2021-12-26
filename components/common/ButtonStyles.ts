@@ -1,10 +1,8 @@
-import { whiten } from '@chakra-ui/theme-tools'
+import { whiten } from '@chakra-ui/theme-tools';
 
 export const ButtonStyles = {
   // style object for base or default style
-  baseStyle: {
-
-  },
+  baseStyle: {},
 
   // styles for different sizes('sm', 'md', 'lg')
   sizes: {},
@@ -17,10 +15,10 @@ export const ButtonStyles = {
       _hover: {
         bg: whiten('primary', 20),
         color: '#1e2380',
-      }
-    }
+      },
+    },
   },
 
   // default values for size and variant
-  defaultProps: {}
-}
+  defaultProps: {},
+};

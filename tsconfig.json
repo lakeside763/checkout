@@ -15,6 +15,17 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/[productId].js", "hooks/useProduct.js", "components/products/productRatings.js", "components/products/addProductReview.js", "components/products/customerReviews.js", "components/products/productDetails.js", "components/products/productReviews.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/[productId].js",
+    "hooks/useProduct.js",
+    "components/products/productRatings.js",
+    "components/products/addProductReview.js",
+    "components/products/customerReviews.js",
+    "components/products/productDetails.js",
+    "components/products/productReviews.js"
+  ],
   "exclude": ["node_modules"]
 }

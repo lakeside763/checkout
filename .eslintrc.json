@@ -1,19 +1,22 @@
 {
   "env": {
-    "browser": true,
     "es2021": true
   },
-  "extends": ["next/core-web-vitals", "prettier"],
+  "extends": ["next", "prettier", "plugin:react/recommended", "google"],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true
+      "jsx": true
     },
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "@typescript-eslint"],
   "rules": {
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "react-hooks/exhaustive-deps": "off",
+    "max-len": ["error", { "code": 150 }],
+    "object-curly-spacing": "off"
   },
   "settings": {
     "import/resolver": {
