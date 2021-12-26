@@ -52,15 +52,15 @@ const AddProductReviewSummary = () => {
         <Flex mt="2">
           <Flex mr="3" mt="1">
             {Array(5)
-              .fill('')
-              .map((_, i) => (
-                <FiStar
-                  fontSize="16"
-                  key={i}
-                  fill={i < Math.round(averageRating) ? '#f59e0c' : '#fff'}
-                  color={i < Math.round(averageRating) ? '#f59e0c' : '#000'}
-                />
-              ))}
+                .fill('')
+                .map((_, i) => (
+                  <FiStar
+                    fontSize="16"
+                    key={i}
+                    fill={i < Math.round(averageRating) ? '#f59e0c' : '#fff'}
+                    color={i < Math.round(averageRating) ? '#f59e0c' : '#000'}
+                  />
+                ))}
           </Flex>
           <Text mr="3">
             {totalReviews} Review{`${totalReviews > 1 ? 's' : ''}`}
@@ -86,10 +86,10 @@ const AddProductReviewForm = ({ addReview, onClose }) => {
   const [review, setReview] = useState(defaultReview);
 
   const handleChange = useCallback(
-    (e) => {
-      setReview({ ...review, [e.target.name]: e.target.value });
-    },
-    [review]
+      (e) => {
+        setReview({ ...review, [e.target.name]: e.target.value });
+      },
+      [review],
   );
 
   const handleSubmit = (e) => {
@@ -102,10 +102,10 @@ const AddProductReviewForm = ({ addReview, onClose }) => {
   };
 
   const handleRating = useCallback(
-    (i) => {
-      setReview({ ...review, rating: i + 1 });
-    },
-    [review]
+      (i) => {
+        setReview({ ...review, rating: i + 1 });
+      },
+      [review],
   );
 
   return (
@@ -118,18 +118,18 @@ const AddProductReviewForm = ({ addReview, onClose }) => {
           <FormLabel>Add Rating:</FormLabel>
           <Flex mr="3" mt="1">
             {Array(5)
-              .fill('')
-              .map((_, i) => (
-                <FiStar
-                  fontSize="20"
-                  cursor="pointer"
-                  onMouseOver={() => handleRating(i)}
-                  onClick={() => handleRating(i)}
-                  key={i}
-                  fill={i < review.rating ? '#f59e0c' : '#fff'}
-                  color={i < review.rating ? '#f59e0c' : '#000'}
-                />
-              ))}
+                .fill('')
+                .map((_, i) => (
+                  <FiStar
+                    fontSize="20"
+                    cursor="pointer"
+                    onMouseOver={() => handleRating(i)}
+                    onClick={() => handleRating(i)}
+                    key={i}
+                    fill={i < review.rating ? '#f59e0c' : '#fff'}
+                    color={i < review.rating ? '#f59e0c' : '#000'}
+                  />
+                ))}
           </Flex>
         </Flex>
         <Textarea placeholder="Enter Comments" mt="3" name="comment" value={review.comment} onChange={handleChange} />
