@@ -16,11 +16,11 @@ import {
   FormLabel,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import {useCallback, useState} from 'react';
-import {FiStar} from 'react-icons/fi';
-import {useProduct} from '../../hooks/useProduct';
+import { useCallback, useState } from 'react';
+import { FiStar } from 'react-icons/fi';
+import { useProduct } from '../../hooks/useProduct';
 
-const AddProductReview = ({addReview, onClose}) => {
+const AddProductReview = ({ addReview, onClose }) => {
   return (
     <>
       <ModalOverlay />
@@ -39,7 +39,7 @@ const AddProductReview = ({addReview, onClose}) => {
 export default AddProductReview;
 
 const AddProductReviewSummary = () => {
-  const {title, image, averageRating, totalReviews} = useProduct();
+  const { title, image, averageRating, totalReviews } = useProduct();
   return (
     <Flex>
       <Box width="100px">
@@ -72,8 +72,8 @@ const AddProductReviewSummary = () => {
   );
 };
 
-const AddProductReviewForm = ({addReview, onClose}) => {
-  const {id} = useProduct();
+const AddProductReviewForm = ({ addReview, onClose }) => {
+  const { id } = useProduct();
   const defaultReview = {
     id,
     name: '',
@@ -87,7 +87,7 @@ const AddProductReviewForm = ({addReview, onClose}) => {
 
   const handleChange = useCallback(
       (e) => {
-        setReview({...review, [e.target.name]: e.target.value});
+        setReview({ ...review, [e.target.name]: e.target.value });
       },
       [review],
   );
@@ -96,14 +96,14 @@ const AddProductReviewForm = ({addReview, onClose}) => {
     e.preventDefault();
     if (!review.name || !review.email || !review.comment) return true;
     const slug = `${review.rating}_star${review.rating === 1 ? '' : 's'}`;
-    addReview({...review, slug});
+    addReview({ ...review, slug });
     setReview(review);
     setTimeout(() => onClose(), 500);
   };
 
   const handleRating = useCallback(
       (i) => {
-        setReview({...review, rating: i + 1});
+        setReview({ ...review, rating: i + 1 });
       },
       [review],
   );

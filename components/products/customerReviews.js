@@ -1,10 +1,10 @@
 import React from 'react';
-import {Box, Flex, Heading, Text} from '@chakra-ui/react';
-import {FiMessageSquare, FiStar} from 'react-icons/fi';
-import {useProduct} from '../../hooks/useProduct';
+import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { FiMessageSquare, FiStar } from 'react-icons/fi';
+import { useProduct } from '../../hooks/useProduct';
 
 const CustomerReviews = () => {
-  const {reviews} = useProduct();
+  const { reviews } = useProduct();
 
   return (
     <Box borderWidth="1px" borderRadius="10" mt="5" p="5">
@@ -12,8 +12,8 @@ const CustomerReviews = () => {
         Customer Reviews
       </Heading>
       {reviews.length ? (
-        reviews.map(({name, slug, comment, createdAt, rating}) => (
-          <Flex key={slug} mt="6" wrap={{base: 'wrap', md: 'nowrap'}} mb="10">
+        reviews.map(({ name, slug, comment, createdAt, rating }) => (
+          <Flex key={slug} mt="6" wrap={{ base: 'wrap', md: 'nowrap' }} mb="10">
             <Flex>
               <Text w="100px" max="auto" width="16" height="16" fontSize="4xl" rounded="full" bg="#f2f2" align="center">
                 O

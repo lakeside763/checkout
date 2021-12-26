@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import Sugar from 'sugar-date';
 
 const defaultRatings = {
@@ -14,7 +14,6 @@ const defaultRatings = {
  */
 export const ProductContext = createContext();
 
-
 /**
  * repsent state for managing product props
  * @param {*} data
@@ -28,7 +27,7 @@ const useProductState = (data) => {
 
   useEffect(() => {
     const processProductReviews = () => {
-      const {ratings, averageRating, totalReviews} = calculateRatings(product);
+      const { ratings, averageRating, totalReviews } = calculateRatings(product);
 
       setProduct({
         ...product,
@@ -45,9 +44,9 @@ const useProductState = (data) => {
     const totalReviews = product.reviews.length;
     let totalRatings = 0;
 
-    const ratingCount = product.reviews.reduce((total, {slug, rating}) => {
+    const ratingCount = product.reviews.reduce((total, { slug, rating }) => {
       totalRatings = totalRatings + rating;
-      return {...total, [slug]: total[slug] + 1};
+      return { ...total, [slug]: total[slug] + 1 };
     }, defaultRatings);
 
     const ratings = [];
@@ -84,9 +83,9 @@ const useProductState = (data) => {
     }
   };
 
-  const addReview = async ({id, ...rest}) => {
+  const addReview = async ({ id, ...rest }) => {
     rest.createdAt = Sugar.Date.medium(new Date());
-    const {ratings, averageRating, totalReviews} = calculateRatings({
+    const { ratings, averageRating, totalReviews } = calculateRatings({
       ...product,
       reviews: [rest, ...product.reviews],
     });

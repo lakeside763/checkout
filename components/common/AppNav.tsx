@@ -1,10 +1,11 @@
-import {Box, Container, Flex, Heading, Menu, MenuButton, SimpleGrid, Spacer, Text, Button} from '@chakra-ui/react';
+import React from 'react';
+import { Box, Container, Flex, Heading, Menu, MenuButton, SimpleGrid, Spacer, Text, Button } from '@chakra-ui/react';
 import Link from 'next/link';
-import {FiShoppingCart} from 'react-icons/fi';
+import { FiShoppingCart } from 'react-icons/fi';
 
 const AppNav = () => {
   return (
-    <Container maxW="container" py="2" px={{base: '8', xl: '40'}} bg="#2bd4db">
+    <Container maxW="container" py="2" px={{ base: '8', xl: '40' }} bg="#2bd4db">
       <SimpleGrid>
         <Flex flexDir="row" mt="1">
           <Box>

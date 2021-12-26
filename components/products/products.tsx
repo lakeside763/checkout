@@ -1,17 +1,17 @@
 import React from 'react';
-import {Container, Box, Flex, Heading, SimpleGrid, Text, Button} from '@chakra-ui/react';
+import { Container, Box, Flex, Heading, SimpleGrid, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import products from '../../products.json';
-import {FiStar} from 'react-icons/fi';
+import { FiStar } from 'react-icons/fi';
 
 const Products = () => {
   return (
-    <Container maxW="container" px={{base: '8', xl: '40'}}>
+    <Container maxW="container" px={{ base: '8', xl: '40' }}>
       <Box mt="20">
         <SimpleGrid columns={[1, null, 2, null, 4]} spacing={10}>
-          {products.map(({id, image, price, title, averageRating, totalReviews}) => (
-            <Box key={id} w={{base: '100%'}} borderWidth="1px" borderRadius="md" data-testid="product-title" id={id}>
+          {products.map(({ id, image, price, title, averageRating, totalReviews }) => (
+            <Box key={id} w={{ base: '100%' }} borderWidth="1px" borderRadius="md" data-testid="product-title" id={id}>
               <Link href={`/${id}`}>
                 <a>
                   <Image src={`${image}`} width="400px" height="400px" alt="Product image" />

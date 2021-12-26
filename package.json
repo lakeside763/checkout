@@ -7,12 +7,15 @@
     "start": "next start",
     "test": "jest --watch",
     "test:ci": "jest --ci",
+    "lint": "next lint",
     "check-types": "tsc --pretty --noEmit",
-    "check-format": "prettier --check .",
-    "check-lint": "eslint . --ext ts --ext tsx --ext js --ext jsx",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js --ext jsx --fix",
     "format": "prettier --write .",
-    "test-all": "yarn check-format && yarn check-lint && yarn check-types && yarn build"
+    "check-format": "prettier --check .",
+    "test-all": "yarn check-format && yarn check-lint && yarn check-types && yarn build",
+    "prepare": "husky install"
   },
+
   "dependencies": {
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11",
@@ -38,16 +41,12 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-next": "12.0.7",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.0",
     "jest": "^27.4.5",
     "jsdom": "^19.0.0",
+    "lint-staged": "^12.1.4",
     "prettier": "^2.5.1",
     "react-test-renderer": "^17.0.2",
     "typescript": "4.5.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint"
-    }
   }
 }

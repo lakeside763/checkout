@@ -4,24 +4,38 @@
 echo 'Styling, testing and building your project before committing'
 
 # check tsconfig standards
-yarn check-types ||
-(
-  echo 'Failed type checked';
-  false;
-)
+# yarn check-types ||
+# (
+#   echo 'Failed type checked, make the changes required above';
+#   false;
+# )
 
-yarn check-types ||
-(
-  echo 'Your styling looks disgusting, Prettier Check Failed, Run yarn format';
-  false;
-)
-
+# Check Eslint Standards
 yarn check-lint ||
 (
-  echo 'Eslint check failed';
+  echo 'Eslint Check Failed, make the necessary changes';
   false;
 )
+
+# Prettier format
+# yarn format ||
+# (
+#   echo 'Prettier style formatting';
+#   true;
+# )
+
+
+# # Check Prettier Standards
+# yarn check-format ||
+# (
+#   echo 'Your styling looks disgusting, Prettier Check Failed, Run yarn format';
+#   true;
+# )
+
+
 
 # If everything passes, you can go ahead and run build
 echo 'Code looks good.'
 
+
+npm test

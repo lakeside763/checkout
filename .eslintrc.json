@@ -8,14 +8,15 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 13,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "react-hooks/exhaustive-deps": "off",
-    "max-len": ["error", { "code": 150, "tabWidth": 4 }]
+    "max-len": ["error", { "code": 150 }],
+    "object-curly-spacing": "off"
   },
   "settings": {
     "import/resolver": {

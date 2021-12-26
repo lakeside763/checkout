@@ -44,9 +44,9 @@ describe('product.test', () => {
     };
 
     render(
-      <ProductContext.Provider value={product}>
-        <ProductDetails />
-      </ProductContext.Provider>
+        <ProductContext.Provider value={product}>
+          <ProductDetails />
+        </ProductContext.Provider>,
     );
     expect(screen.getByText('F8 Smart watch')).toBeInTheDocument();
   });

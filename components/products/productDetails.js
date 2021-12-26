@@ -1,12 +1,12 @@
 import React from 'react';
-import {Box, Flex, Heading, Text, Button} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image';
-import {useProduct} from '../../hooks/useProduct';
+import { useProduct } from '../../hooks/useProduct';
 
 const ProductDetails = () => {
-  const {title, image, description, price, productCode} = useProduct();
+  const { title, image, description, price, productCode } = useProduct();
   return (
-    <Flex justifyContent="flex-start" wrap={{base: 'wrap', md: 'nowrap'}}>
+    <Flex justifyContent="flex-start" wrap={{ base: 'wrap', md: 'nowrap' }}>
       <Box maxW="500px">
         <Image src={`${image}`} alt={title} width="500px" height="500px" />
       </Box>

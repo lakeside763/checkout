@@ -1,19 +1,20 @@
-import {Box, Flex, Heading, Progress, Text} from '@chakra-ui/react';
-import {FiStar} from 'react-icons/fi';
-import {useProduct} from '../../hooks/useProduct';
+import React from 'react';
+import { Box, Flex, Heading, Progress, Text } from '@chakra-ui/react';
+import { FiStar } from 'react-icons/fi';
+import { useProduct } from '../../hooks/useProduct';
 
 const ProductRatings = () => {
-  const {ratings, averageRating, totalReviews} = useProduct();
+  const { ratings, averageRating, totalReviews } = useProduct();
 
   return (
     <Box borderWidth="1px" borderRadius="10" p="5">
       <Heading as="h4" fontSize="medium">
         Product Ratings
       </Heading>
-      <Flex mt="2" wrap={{base: 'wrap-reverse', lg: 'nowrap'}}>
+      <Flex mt="2" wrap={{ base: 'wrap-reverse', lg: 'nowrap' }}>
         <Box>
           {ratings &&
-            ratings.map(({count, slug, percentage}) => (
+            ratings.map(({ count, slug, percentage }) => (
               <Flex mb="3" key={slug}>
                 <Text mr="3" fontSize="12px">
                   {slug.replace('_', ' ')}
@@ -28,7 +29,7 @@ const ProductRatings = () => {
             ))}
         </Box>
 
-        <Box ml={{base: '0', md: '6'}} mb="5">
+        <Box ml={{ base: '0', md: '6' }} mb="5">
           <Flex>
             <Heading fontSize="6xl" fontWeight="normal">
               {averageRating.toFixed(1)}

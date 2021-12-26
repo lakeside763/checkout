@@ -1,8 +1,10 @@
-import {Box, Button, Heading, Text, useDisclosure, Modal} from '@chakra-ui/react';
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Box, Button, Heading, Text, useDisclosure, Modal } from '@chakra-ui/react';
 import AddProductReview from './addProductReview';
 
-const ProductReviews = ({addReview}) => {
-  const {isOpen, onOpen, onClose} = useDisclosure();
+const ProductReviews = ({ addReview }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -10,7 +12,7 @@ const ProductReviews = ({addReview}) => {
         <Heading as="h4" fontSize="medium">
           Review this product
         </Heading>
-        <Box textAlign="center" py="auto" mt={{base: '8', md: '16'}}>
+        <Box textAlign="center" py="auto" mt={{ base: '8', md: '16' }}>
           <Text fontSize="large">Share your thoughts with other customers</Text>
           <Button mt="5" onClick={onOpen} borderWidth="2px">
             Write a customer review
