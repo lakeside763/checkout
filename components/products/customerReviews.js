@@ -29,10 +29,10 @@ const CustomerReviews = () => {
             <Box ml="20" mt="3">
               <Flex>
                 {Array(5)
-                    .fill('')
-                    .map((_, i) => (
-                      <FiStar fontSize="16" key={i} fill={i < rating ? '#f59e0c' : '#fff'} color={i < rating ? '#f59e0c' : '#000'} />
-                    ))}
+                  .fill('')
+                  .map((_, i) => (
+                    <FiStar fontSize="16" key={i} fill={i < rating ? '#f59e0c' : '#fff'} color={i < rating ? '#f59e0c' : '#000'} />
+                  ))}
               </Flex>
               <Text mt="2">{comment}.</Text>
             </Box>

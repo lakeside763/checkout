@@ -30,15 +30,15 @@ const Products = () => {
                     </Flex>
                     <Flex mt="3">
                       {Array(5)
-                          .fill('')
-                          .map((_, i) => (
-                            <FiStar
-                              fontSize="12"
-                              key={i}
-                              fill={i < Math.round(averageRating) ? '#f59e0c' : '#cfdde4'}
-                              color={i < Math.round(averageRating) ? '#f59e0c' : '#cfdde4'}
-                            />
-                          ))}
+                        .fill('')
+                        .map((_, i) => (
+                          <FiStar
+                            fontSize="12"
+                            key={i}
+                            fill={i < Math.round(averageRating) ? '#f59e0c' : '#cfdde4'}
+                            color={i < Math.round(averageRating) ? '#f59e0c' : '#cfdde4'}
+                          />
+                        ))}
                       <Text fontSize="12px" mt="-1" ml="1">
                         {totalReviews < 1 ? 'No review yet' : `${totalReviews} review${totalReviews > 1 ? 's' : ''}`}
                       </Text>

@@ -40,15 +40,15 @@ const ProductRatings = () => {
           </Flex>
           <Flex mt="6px">
             {Array(5)
-                .fill('')
-                .map((_, i) => (
-                  <FiStar
-                    fontSize="16"
-                    key={i}
-                    fill={i < Math.round(averageRating) ? '#f59e0c' : '#fff'}
-                    color={i < Math.round(averageRating) ? '#f59e0c' : '#000'}
-                  />
-                ))}
+              .fill('')
+              .map((_, i) => (
+                <FiStar
+                  fontSize="16"
+                  key={i}
+                  fill={i < Math.round(averageRating) ? '#f59e0c' : '#fff'}
+                  color={i < Math.round(averageRating) ? '#f59e0c' : '#000'}
+                />
+              ))}
           </Flex>
           <Text>Reviews</Text>
         </Box>
