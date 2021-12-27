@@ -1,6 +1,45 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import Sugar from 'sugar-date';
 
+export interface Review {
+  name: string;
+  email: string;
+  rating: number;
+  slug: string;
+  comment: string;
+  createdAt?: Date;
+}
+
+interface Rating {
+  slug: string;
+  count: number;
+  percentage: number;
+}
+
+export interface Product {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  price: number;
+  productCode: string;
+  reviews: Review[];
+  ratings: Rating[];
+  averageRating: number;
+  totalReviews: number;
+}
+
+export interface AddReview extends Review {
+  id?: string;
+  averageRating?: number;
+  totalReviews?: number;
+}
+
+export interface ProductProps {
+  product: Product;
+}
+
+// the list of stars and it default value used for ploting ratings graph
 const defaultRatings = {
   '5_stars': 0,
   '4_stars': 0,
@@ -9,21 +48,33 @@ const defaultRatings = {
   '1_star': 0,
 };
 
-/**
- * ProductContext for product component
- */
-export const ProductContext = createContext();
+const defaultProduct = {
+  id: '',
+  title: '',
+  description: '',
+  image: '',
+  price: 0,
+  productCode: '',
+  averageRating: 0,
+  totalReviews: 6,
+  reviews: [],
+  ratings: [],
+};
+
+// ProductContext for product component
+export const ProductContext = createContext<Product>(defaultProduct);
 
 /**
- * repsent state for managing product props
+ * represent state for managing product props
  * @param {*} data
  * @return {product} product props generated from getStaticProps and getStaticPath by product Id
  * @return {addReview}
  */
-const useProductState = (data) => {
+const useProductState = (data: Product) => {
   const [product, setProduct] = useState(data);
 
-  const ratingPercentage = (count, totalReviews) => parseInt(((count * 100) / totalReviews).toFixed(0));
+  // function for calculating each rating percentage.
+  const ratingPercentage = (count: number, totalReviews: number) => parseInt(((count * 100) / totalReviews).toFixed(0));
 
   useEffect(() => {
     const processProductReviews = () => {
@@ -40,11 +91,12 @@ const useProductState = (data) => {
     processProductReviews();
   }, []);
 
-  const calculateRatings = (product) => {
+  // the function evaluate the ratings, total number of user reviews and average ratings.
+  const calculateRatings = (product: Product) => {
     const totalReviews = product.reviews.length;
     let totalRatings = 0;
 
-    const ratingCount = product.reviews.reduce((total, { slug, rating }) => {
+    const ratingCount = product.reviews.reduce<any>((total, { slug, rating }) => {
       totalRatings = totalRatings + rating;
       return { ...total, [slug]: total[slug] + 1 };
     }, defaultRatings);
@@ -53,8 +105,8 @@ const useProductState = (data) => {
     for (const [key, value] of Object.entries(ratingCount)) {
       ratings.push({
         slug: key,
-        count: value,
-        percentage: totalReviews > 0 ? ratingPercentage(value, totalReviews) : 0,
+        count: value as number,
+        percentage: totalReviews > 0 ? ratingPercentage(value as number, totalReviews) : 0,
       });
     }
 
@@ -67,7 +119,8 @@ const useProductState = (data) => {
     };
   };
 
-  const addReviewRequest = async (data) => {
+  // the function send a server request for adding review to product reviews
+  const addReviewRequest = async (data: AddReview) => {
     try {
       const addReview = await fetch('http://localhost:3000/api/product', {
         method: 'POST',
@@ -78,23 +131,19 @@ const useProductState = (data) => {
         body: JSON.stringify(data),
       });
       return addReview.json();
-    } catch (error) {
+    } catch (error: any) {
       return error.message;
     }
   };
 
-  const addReview = async ({ id, ...rest }) => {
+  // the function process and review request and update new values for the product
+  const addReview = async ({ id, ...rest }: AddReview) => {
     rest.createdAt = Sugar.Date.medium(new Date());
     const { ratings, averageRating, totalReviews } = calculateRatings({
       ...product,
       reviews: [rest, ...product.reviews],
     });
-    const addReview = await addReviewRequest({
-      ...rest,
-      id,
-      averageRating,
-      totalReviews,
-    });
+    const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews });
     if (addReview) {
       setProduct({
         ...product,

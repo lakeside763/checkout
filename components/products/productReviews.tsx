@@ -2,8 +2,13 @@
 import React from 'react';
 import { Box, Button, Heading, Text, useDisclosure, Modal } from '@chakra-ui/react';
 import AddProductReview from './addProductReview';
+import { AddReview } from '../../hooks/useProduct';
 
-const ProductReviews = ({ addReview }) => {
+interface ProductReviewProps {
+  addReview: (review: AddReview) => Promise<void>,
+}
+
+const ProductReviews = ({ addReview }: ProductReviewProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
