@@ -20,8 +20,8 @@ import { FiStar } from 'react-icons/fi';
 import { AddReview, useProduct } from '../../hooks/useProduct';
 
 interface AddProductReviewProps {
-  addReview: (review: AddReview) => Promise<void>,
-  onClose: () => void
+  addReview: (review: AddReview) => Promise<void>;
+  onClose: () => void;
 }
 
 const AddProductReview = ({ addReview, onClose }: AddProductReviewProps) => {
@@ -69,7 +69,7 @@ const AddProductReviewSummary = () => {
           <Text mr="3">
             {totalReviews} Review{`${totalReviews > 1 ? 's' : ''}`}
           </Text>
-          <Text>1285 orders</Text>
+          <Text>0 orders</Text>
         </Flex>
       </Box>
     </Flex>

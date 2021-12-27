@@ -6,64 +6,24 @@
     "image": "/images/spacejelly-tshirt.jpg",
     "price": 20,
     "productCode": "SP12345",
-    "averageRating": 3.8,
-    "totalReviews": 6,
+    "averageRating": 4,
+    "totalReviews": 2,
     "reviews": [
       {
-        "name": "Reece James",
-        "email": "james@yahoo.com",
-        "rating": 5,
-        "comment": "Top notch",
-        "slug": "5_stars",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "Tunde Frank",
+        "name": "Frank Smith",
         "email": "frank@gmail.com",
-        "rating": 1,
-        "comment": "Lovely product, it's highly recommendable",
-        "slug": "1_star",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "SmithTech",
-        "email": "lakeside763@gmail.com",
         "rating": 5,
-        "comment": "Great",
+        "comment": "Great product",
         "slug": "5_stars",
-        "createdAt": "December 24, 2021"
+        "createdAt": "December 27, 2021"
       },
       {
-        "name": "Olalekan Idowu",
-        "email": "lakeside763@gmail.com",
-        "rating": 5,
-        "slug": "5_stars",
-        "comment": "The product is very good",
-        "createdAt": "December 23, 2021"
-      },
-      {
-        "name": "James Smith",
-        "email": "smtith@gmail.com",
-        "rating": 5,
-        "slug": "5_stars",
-        "comment": "The product served more than expectation",
-        "createdAt": "December 14, 2021"
-      },
-      {
-        "name": "Tunde Smart",
-        "email": "tunde@gmail.com",
+        "name": "Moses Idowu",
+        "email": "mosesidowu24@yahoo.com",
         "rating": 3,
+        "comment": "I like the product",
         "slug": "3_stars",
-        "comment": "Not bad",
-        "createdAt": "December 14, 2021"
-      },
-      {
-        "name": "Frank Lampard",
-        "email": "frank@gmail.com",
-        "rating": 4,
-        "slug": "4_stars",
-        "comment": "I like it, it served the purpose",
-        "createdAt": "December 10, 2021"
+        "createdAt": "December 27, 2021"
       }
     ]
   },
@@ -75,42 +35,9 @@
     "price": 10,
     "productCode": "SP12345",
     "brand": "Space Jelly",
-    "averageRating": 3.3,
-    "totalReviews": 3,
-    "reviews": [
-      {
-        "name": "Moses Idowu",
-        "email": "mosesidowu24@yahoo.com",
-        "rating": 5,
-        "comment": "Great product",
-        "slug": "5_stars",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "Frank Lampard",
-        "email": "frank@gmail.com",
-        "rating": 5,
-        "comment": "I love the product",
-        "slug": "5_stars",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "Olalekan Idowu",
-        "email": "mosesidowu24@yahoo.com",
-        "rating": 3,
-        "comment": "Very gumming and attractive sticker",
-        "slug": "3_stars",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "Easyflex Technology",
-        "email": "mosesidowu24@yahoo.com",
-        "rating": 2,
-        "comment": "Great Product",
-        "slug": "2_stars",
-        "createdAt": "December 25, 2021"
-      }
-    ]
+    "averageRating": 0,
+    "totalReviews": 0,
+    "reviews": []
   },
   {
     "id": "price_abcd0003",
