@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { Product } from '../../hooks/useProduct';
 import products from '../../products.json';
-import { withSentry } from '@sentry/nextjs';
 
 /**
  * Accept add process add review request on the server.
@@ -32,7 +31,7 @@ async function productHandler(req: NextApiRequest, res: NextApiResponse<Product>
   }
 }
 
-export default withSentry(productHandler);
+export default productHandler;
 
 // eslint-disable-next-line require-jsdoc
 export async function productHandlerTest(req: NextApiRequest, res: NextApiResponse<Product>) {
