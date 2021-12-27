@@ -30,3 +30,25 @@ export default async function productHandler(req: NextApiRequest, res: NextApiRe
     }
   }
 }
+
+// eslint-disable-next-line require-jsdoc
+export async function productHandlerTest(req: NextApiRequest, res: NextApiResponse<Product>) {
+  if (req.method === 'POST') {
+    const { id, averageRating, totalReviews, ratings, ...rest } = req.body;
+    const product = products.find((product: { id: string }) => product.id === id);
+    if (product?.reviews) {
+      const updatedProduct = {
+        ...product,
+        ratings,
+        averageRating,
+        totalReviews,
+        reviews: [rest, ...product.reviews],
+      };
+
+      const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
+
+      fs.writeFileSync(path.resolve('./productsTest.json'), JSON.stringify(updatedProducts), 'utf-8');
+      res.status(200).json(updatedProduct);
+    }
+  }
+}

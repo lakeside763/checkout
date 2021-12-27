@@ -1,9 +1,9 @@
 import { createServer } from 'http';
 import { apiResolver } from 'next/dist/server/api-utils';
 import request from 'supertest';
-import productHandler from './../../pages/api/product.ts';
+import { productHandlerTest } from './../../pages/api/product.ts';
 
-const requestHandler = (req, res) => apiResolver(req, res, undefined, productHandler);
+const requestHandler = (req, res) => apiResolver(req, res, undefined, productHandlerTest);
 
 let server;
 
