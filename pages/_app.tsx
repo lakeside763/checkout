@@ -2,6 +2,7 @@ import React from 'react';
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/provider';
 import { ButtonStyles as Button } from '../components/common/ButtonStyles';
+import * as Sentry from '@sentry/nextjs';
 
 // 1. Import the extendTheme function
 import { extendTheme } from '@chakra-ui/react';
@@ -21,6 +22,14 @@ const components = {
 };
 
 const theme = extendTheme({ colors, components });
+
+Sentry.init({
+  dsn: 'https://104ed71878e1414bb41de09451fed8ca@o1099971.ingest.sentry.io/6124840',
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+});
 
 /** This default export is required in a new `pages/_app.js` file.
  * the app entry point
