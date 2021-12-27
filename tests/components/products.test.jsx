@@ -1,12 +1,13 @@
 import React from 'react';
 import Products from '../../components/products/Products';
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import products from './../../products.json';
 import { ProductContext } from './../../hooks/useProduct';
 import ProductDetails from './../../components/products/productDetails';
 
 describe('product.test', () => {
+  afterEach(cleanup);
   test('should render products page', () => {
     const div = document.createElement('div');
     render(<Products />, div);

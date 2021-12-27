@@ -19,13 +19,13 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/[productId].js",
-    "hooks/useProduct.js",
-    "components/products/productRatings.js",
-    "components/products/addProductReview.js",
-    "components/products/customerReviews.js",
-    "components/products/productDetails.js",
-    "components/products/productReviews.js"
+    "pages/[productId].tsx",
+    "hooks/useProduct.ts",
+    "components/products/productRatings.tsx",
+    "components/products/addProductReview.tsx",
+    "components/products/customerReviews.tsx",
+    "components/products/productDetails.tsx",
+    "components/products/productReviews.tsx"
   ],
   "exclude": ["node_modules"]
 }

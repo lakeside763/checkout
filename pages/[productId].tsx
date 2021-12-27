@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import { Container, Box, SimpleGrid } from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
@@ -7,40 +6,10 @@ import ProductDetails from '../components/products/productDetails';
 import ProductRatings from '../components/products/productRatings';
 import CustomerReviews from '../components/products/customerReviews';
 import ProductReviews from '../components/products/productReviews';
-import useProductState, { ProductContext } from '../hooks/useProduct';
+import useProductState, { ProductContext, ProductProps } from '../hooks/useProduct';
 import AppFooter from '../components/common/AppFooter';
 
-// export interface Review {
-//   name: string,
-//   email: string,
-//   rating: number,
-//   slug: string,
-//   comment: string,
-// }
-
-// interface Rating {
-//   slug: string,
-//   count: number,
-//   percentage: number,
-// }
-
-// export interface Product {
-//   id: string,
-//   title: string,
-//   description: string,
-//   image: string,
-//   price: string,
-//   reviews: Review[],
-//   ratings: Rating[],
-//   averageRating: number,
-//   totalReviews: number,
-// }
-
-// export interface ProductProps {
-//   product: Product
-// }
-
-const ProductId = ({ product: data }) => {
+const ProductId = ({ product: data }: ProductProps) => {
   const { product, addReview } = useProductState(data);
 
   return (
@@ -65,7 +34,7 @@ const ProductId = ({ product: data }) => {
 
 export default ProductId;
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: any) => {
   const product = products.find(({ id }) => id === params.productId);
   return {
     props: {

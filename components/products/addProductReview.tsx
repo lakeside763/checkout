@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import {
   Box,
@@ -18,9 +17,14 @@ import {
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { FiStar } from 'react-icons/fi';
-import { useProduct } from '../../hooks/useProduct';
+import { AddReview, useProduct } from '../../hooks/useProduct';
 
-const AddProductReview = ({ addReview, onClose }) => {
+interface AddProductReviewProps {
+  addReview: (review: AddReview) => Promise<void>;
+  onClose: () => void;
+}
+
+const AddProductReview = ({ addReview, onClose }: AddProductReviewProps) => {
   return (
     <>
       <ModalOverlay />
@@ -65,14 +69,14 @@ const AddProductReviewSummary = () => {
           <Text mr="3">
             {totalReviews} Review{`${totalReviews > 1 ? 's' : ''}`}
           </Text>
-          <Text>1285 orders</Text>
+          <Text>0 orders</Text>
         </Flex>
       </Box>
     </Flex>
   );
 };
 
-const AddProductReviewForm = ({ addReview, onClose }) => {
+const AddProductReviewForm = ({ addReview, onClose }: AddProductReviewProps) => {
   const { id } = useProduct();
   const defaultReview = {
     id,
@@ -92,7 +96,7 @@ const AddProductReviewForm = ({ addReview, onClose }) => {
       [review],
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!review.name || !review.email || !review.comment) return true;
     const slug = `${review.rating}_star${review.rating === 1 ? '' : 's'}`;

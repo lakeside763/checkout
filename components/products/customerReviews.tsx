@@ -13,7 +13,7 @@ const CustomerReviews = () => {
       </Heading>
       {reviews.length ? (
         reviews.map(({ name, slug, comment, createdAt, rating }) => (
-          <Flex key={slug} mt="6" wrap={{ base: 'wrap', md: 'nowrap' }} mb="10">
+          <Flex key={`${slug}-${Date.now()}`} mt="6" wrap={{ base: 'wrap', md: 'nowrap' }} mb="10" data-testid='customer-review'>
             <Flex>
               <Text w="100px" max="auto" width="16" height="16" fontSize="4xl" rounded="full" bg="#f2f2" align="center">
                 O

@@ -4,50 +4,26 @@
     "title": "Space Jelly Tshirt",
     "description": "Bring Cosmo the space Jellyfish to your wardrobe with this high quality tshirt.",
     "image": "/images/spacejelly-tshirt.jpg",
-    "price": 20.0,
+    "price": 20,
     "productCode": "SP12345",
-    "averageRating": 0,
-    "totalReviews": 0,
+    "averageRating": 4,
+    "totalReviews": 2,
     "reviews": [
       {
-        "name": "SmithTech",
-        "email": "lakeside763@gmail.com",
-        "rating": 5,
-        "comment": "Great",
-        "slug": "5_stars",
-        "createdAt": "December 24, 2021"
-      },
-      {
-        "name": "Olalekan Idowu",
-        "email": "lakeside763@gmail.com",
-        "rating": 5,
-        "slug": "5_stars",
-        "comment": "The product is very good",
-        "createdAt": "December 23, 2021"
-      },
-      {
-        "name": "James Smith",
-        "email": "smtith@gmail.com",
-        "rating": 5,
-        "slug": "5_stars",
-        "comment": "The product served more than expectation",
-        "createdAt": "December 14, 2021"
-      },
-      {
-        "name": "Tunde Smart",
-        "email": "tunde@gmail.com",
-        "rating": 3,
-        "slug": "3_stars",
-        "comment": "Not bad",
-        "createdAt": "December 14, 2021"
-      },
-      {
-        "name": "Frank Lampard",
+        "name": "Frank Smith",
         "email": "frank@gmail.com",
-        "rating": 4,
-        "slug": "4_stars",
-        "comment": "I like it, it served the purpose",
-        "createdAt": "December 10, 2021"
+        "rating": 5,
+        "comment": "Great product",
+        "slug": "5_stars",
+        "createdAt": "December 27, 2021"
+      },
+      {
+        "name": "Moses Idowu",
+        "email": "mosesidowu24@yahoo.com",
+        "rating": 3,
+        "comment": "I like the product",
+        "slug": "3_stars",
+        "createdAt": "December 27, 2021"
       }
     ]
   },
@@ -56,29 +32,12 @@
     "title": "Space Jelly Stickers",
     "description": "Add some flare to your laptop with a sticker of Cosmo the Space Jellyfish.",
     "image": "/images/spacejelly-stickers.jpg",
-    "price": 10.0,
+    "price": 10,
     "productCode": "SP12345",
     "brand": "Space Jelly",
     "averageRating": 0,
     "totalReviews": 0,
-    "reviews": [
-      {
-        "name": "Olalekan Idowu",
-        "email": "mosesidowu24@yahoo.com",
-        "rating": 3,
-        "comment": "Very gumming and attractive sticker",
-        "slug": "3_stars",
-        "createdAt": "December 25, 2021"
-      },
-      {
-        "name": "Easyflex Technology",
-        "email": "mosesidowu24@yahoo.com",
-        "rating": 2,
-        "comment": "Great Product",
-        "slug": "2_stars",
-        "createdAt": "December 25, 2021"
-      }
-    ]
+    "reviews": []
   },
   {
     "id": "price_abcd0003",
@@ -88,9 +47,18 @@
     "price": 25.99,
     "productCode": "SP12345",
     "brand": "Space Jelly",
-    "averageRating": 0,
-    "totalReviews": 0,
-    "reviews": []
+    "averageRating": 4,
+    "totalReviews": 1,
+    "reviews": [
+      {
+        "name": "Easyflex Technology",
+        "email": "olalekan@ubix24.com",
+        "rating": 4,
+        "comment": "I love the jelly bean top",
+        "slug": "4_stars",
+        "createdAt": "December 25, 2021"
+      }
+    ]
   },
   {
     "id": "price_abcd0004",
@@ -109,7 +77,7 @@
     "title": "HP Laptop 15-DW1324NIA",
     "description": "Intel Core™ I3-10110u 4GB RAM 1TB, Touchscreen Freedos - Jet Black (3V033EA)",
     "image": "/images/hp-laptop.jpg",
-    "price": 300.0,
+    "price": 300,
     "productCode": "SP12345",
     "brand": "hp",
     "averageRating": 0,
@@ -121,7 +89,7 @@
     "title": "Microsoft Mouse",
     "description": "Wireless micosoft mouse for laptop and desktop",
     "image": "/images/microsoft-mouse.jpg",
-    "price": 25.0,
+    "price": 25,
     "productCode": "MI12345",
     "brand": "Microsoft",
     "averageRating": 0,
@@ -133,7 +101,7 @@
     "title": "F8 Smart watch",
     "description": "CUSTOMIZABLE Photo Display, Bluetooth Smart Watch V8 With Camera Smar Twatch",
     "image": "/images/smart-watch.jpg",
-    "price": 50.0,
+    "price": 50,
     "productCode": "MI12345",
     "brand": "Xiaomi",
     "averageRating": 0,
