@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { Product } from '../../hooks/useProduct';
 import products from '../../products.json';
+import { withSentry } from '@sentry/nextjs';
 
 /**
  * Accept add process add review request on the server.
@@ -10,10 +11,10 @@ import products from '../../products.json';
  * @param {*} res
  * @return {product} accept add review request and return updated product details.
  */
-export default async function productHandler(req: NextApiRequest, res: NextApiResponse<Product>) {
+async function productHandler(req: NextApiRequest, res: NextApiResponse<Product>) {
   if (req.method === 'POST') {
     const { id, averageRating, totalReviews, ratings, ...rest } = req.body;
-    const product = products.find((product: { id: string; }) => product.id === id);
+    const product = products.find((product: { id: string }) => product.id === id);
     if (product?.reviews) {
       const updatedProduct = {
         ...product,
@@ -30,6 +31,8 @@ export default async function productHandler(req: NextApiRequest, res: NextApiRe
     }
   }
 }
+
+export default withSentry(productHandler);
 
 // eslint-disable-next-line require-jsdoc
 export async function productHandlerTest(req: NextApiRequest, res: NextApiResponse<Product>) {
