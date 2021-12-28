@@ -15,10 +15,11 @@ commands:
       - run:
           name: Bump version
           command: |
-            cd ./
+            cd ./ && pwd
             git config --global user.email "lakeside763@gmail.com"
             git config --global user.name "Olalekan Idowu"
             npm version prerelease --preid=alpha
+            git add -A && git commit -m "ci: bumped version number [ci skip]" && git push
 
 jobs:
   test-app:
@@ -51,14 +52,18 @@ jobs:
       - checkout
       - run:
           name: Build and Tag image
-          command: docker-compose build
+          command: |
+            pwd
+            docker-compose build
       - run:
           name: Docker Login
           command: >
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
       - run:
           name: Push image
-          command: docker-compose push
+          command: |
+            pwd
+            docker-compose push
 
 workflows:
   checkout_workflow:
