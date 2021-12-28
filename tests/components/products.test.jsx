@@ -1,5 +1,5 @@
 import React from 'react';
-import Products from '../../components/products/Products';
+import Products from './../../components/products/Products';
 import { cleanup, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import products from './../../products.json';
