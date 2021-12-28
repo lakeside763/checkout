@@ -1,0 +1,9 @@
+.git
+.gitignore
+.idea
+.DS_Store
+.editorconfig
+.Dockerfile
+.next
+*.swp
+!.env
