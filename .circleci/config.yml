@@ -18,7 +18,7 @@ commands:
             cd ./ && pwd
             git config --global user.email "lakeside763@gmail.com"
             git config --global user.name "Olalekan Idowu"
-            npm version prerelease --preid=alpha
+            ./bump.sh prerelease --preid=alpha
             git add -A && git commit -m "ci: bumped version number [ci skip]" && git push
 
 jobs:
