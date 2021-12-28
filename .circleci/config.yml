@@ -42,7 +42,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - 'e5:1a:95:3f:5b:71:d4:74:ce:1a:5e:26:02:f9:30:80'
+            - '30:13:59:73:e0:b7:8a:de:33:57:0c:d3:2a:07:4d:49'
       - run_bump_version
   build-and-push:
     docker:
