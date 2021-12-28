@@ -19,7 +19,6 @@ commands:
             git config user.email "lakeside763@gmail.com"
             git config user.name "Olalekan Idowu"
             npm version prerelease --preid=alpha
-            git checkout develop
             git add -A && git commit -m "ci: bumped version number [ci skip]"
             git push
 
