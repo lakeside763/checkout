@@ -44,25 +44,7 @@ jobs:
           fingerprints:
             - 'e6:f7:bc:4e:ef:ca:51:cc:76:23:1c:99:5c:b6:41:50'
       - run_bump_version
-  build-and-push:
-    docker:
-      - image: circleci/buildpack-deps
-    steps:
-      - checkout
-      - run:
-          name: Build and Tag image
-          command: |
-            cd ./
-            docker-compose build
-      - run:
-          name: Docker Login
-          command: >
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-      - run:
-          name: Push image
-          command: |
-            cd ./
-            docker-compose push
+
 
 workflows:
   checkout_workflow:
@@ -72,16 +54,6 @@ workflows:
           name: bumped-version
           requires:
             - test-app
-          filters:
-            branches:
-              only:
-                - develop
-              ignore: /.*/
-      - build-and-push:
-          name: build-and-push
-          requires:
-            - test-app
-            - bumped-version
           filters:
             branches:
               only:
