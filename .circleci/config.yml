@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: Install Dependencies
-          commnd: yarn install
+          command: yarn install
       - run:
           name: Run Check Lint
           command: yarn check-lint
