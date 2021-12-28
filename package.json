@@ -1,5 +1,10 @@
 {
   "name": "checkout",
+  "version": "1.0.0-alpha.1",
+  "description": "Checkout.com product review app",
+  "repository": "https://github.com/lakeside763/checkout.git",
+  "author": "Olalekan Idowu <lakeside763@gmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
