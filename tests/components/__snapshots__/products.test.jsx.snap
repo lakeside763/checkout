@@ -278,7 +278,7 @@ exports[`product.test should render products on unchanged 1`] = `
               <p
                 className="chakra-text css-1nz6bed"
               >
-                6 reviews
+                3 reviews
               </p>
             </div>
             <button
@@ -446,8 +446,8 @@ exports[`product.test should render products on unchanged 1`] = `
               className="css-13vecxt"
             >
               <svg
-                color="#f59e0c"
-                fill="#f59e0c"
+                color="#cfdde4"
+                fill="#cfdde4"
                 fontSize="12"
                 height="1em"
                 stroke="currentColor"
@@ -456,7 +456,7 @@ exports[`product.test should render products on unchanged 1`] = `
                 strokeWidth="2"
                 style={
                   Object {
-                    "color": "#f59e0c",
+                    "color": "#cfdde4",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -468,8 +468,8 @@ exports[`product.test should render products on unchanged 1`] = `
                 />
               </svg>
               <svg
-                color="#f59e0c"
-                fill="#f59e0c"
+                color="#cfdde4"
+                fill="#cfdde4"
                 fontSize="12"
                 height="1em"
                 stroke="currentColor"
@@ -478,7 +478,7 @@ exports[`product.test should render products on unchanged 1`] = `
                 strokeWidth="2"
                 style={
                   Object {
-                    "color": "#f59e0c",
+                    "color": "#cfdde4",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -490,8 +490,8 @@ exports[`product.test should render products on unchanged 1`] = `
                 />
               </svg>
               <svg
-                color="#f59e0c"
-                fill="#f59e0c"
+                color="#cfdde4"
+                fill="#cfdde4"
                 fontSize="12"
                 height="1em"
                 stroke="currentColor"
@@ -500,7 +500,7 @@ exports[`product.test should render products on unchanged 1`] = `
                 strokeWidth="2"
                 style={
                   Object {
-                    "color": "#f59e0c",
+                    "color": "#cfdde4",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -558,7 +558,7 @@ exports[`product.test should render products on unchanged 1`] = `
               <p
                 className="chakra-text css-1nz6bed"
               >
-                3 reviews
+                No review yet
               </p>
             </div>
             <button
