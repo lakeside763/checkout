@@ -5,7 +5,7 @@ import Link from 'next/link';
 import products from '../../products.json';
 import { FiStar } from 'react-icons/fi';
 
-const Products = () => {
+const ProductList = () => {
   return (
     <Container maxW="container" px={{ base: '8', xl: '40' }}>
       <Box mt="20">
@@ -57,4 +57,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductList;

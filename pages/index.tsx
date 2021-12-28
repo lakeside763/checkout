@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import { Box, Stack } from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
-import Products from '../components/products/products';
+import Products from '../components/products/productList';
 import AppFooter from '../components/common/AppFooter';
 
 const Home: NextPage = () => {
