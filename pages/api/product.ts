@@ -1,7 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-
 /**
  * Accept add process add review request on the server.
  * @param {*} req

@@ -1,7 +1,7 @@
 import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
-import products from '../../products.json';
+import products from '../../public/products.json';
 import ProductList from '../../components/products/productList';
 import ProductDetails from '../../components/products/productDetails';
 import { ProductContext } from '../../hooks/useProduct';
