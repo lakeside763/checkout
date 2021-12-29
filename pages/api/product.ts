@@ -1,8 +1,6 @@
-import fs from 'fs';
+import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
-import path from 'path';
-import { Product } from '../../hooks/useProduct';
-import products from '../../products.json';
+
 
 /**
  * Accept add process add review request on the server.
@@ -10,47 +8,51 @@ import products from '../../products.json';
  * @param {*} res
  * @return {product} accept add review request and return updated product details.
  */
-async function productHandler(req: NextApiRequest, res: NextApiResponse<Product>) {
+async function productHandler(req: NextApiRequest, res: NextApiResponse<any>) {
+  const prisma = new PrismaClient();
   if (req.method === 'POST') {
-    const { id, averageRating, totalReviews, ratings, ...rest } = req.body;
-    const product = products.find((product: { id: string }) => product.id === id);
-    if (product?.reviews) {
-      const updatedProduct = {
-        ...product,
-        ratings,
+    const { id, averageRating, totalReviews, ...rest } = req.body;
+
+    await prisma.products.update({
+      where: { id },
+      data: {
         averageRating,
         totalReviews,
-        reviews: [rest, ...product.reviews],
-      };
+      },
+    });
 
-      const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
+    const addReview = await prisma.reviews.create({
+      data: {
+        id: `${id}_${totalReviews}`,
+        ...rest,
+        products: { connect: { id } },
+      },
+    });
 
-      fs.writeFileSync(path.resolve('./products.json'), JSON.stringify(updatedProducts), 'utf-8');
-      res.status(200).json(updatedProduct);
-    }
+    res.status(200).json(addReview);
   }
-}
+};
 
 export default productHandler;
 
 // eslint-disable-next-line require-jsdoc
-export async function productHandlerTest(req: NextApiRequest, res: NextApiResponse<Product>) {
-  if (req.method === 'POST') {
-    const { id, averageRating, totalReviews, ratings, ...rest } = req.body;
-    const product = products.find((product: { id: string }) => product.id === id);
-    if (product?.reviews) {
-      const updatedProduct = {
-        ...product,
-        ratings,
-        averageRating,
-        totalReviews,
-        reviews: [rest, ...product.reviews],
-      };
+// export async function productHandlerTest(req: NextApiRequest, res: NextApiResponse<Product>) {
+//   if (req.method === 'POST') {
+//     const { id, averageRating, totalReviews, ratings, ...rest } = req.body;
+//     const product = products.find((product: { id: string }) => product.id === id);
+//     if (product?.reviews) {
+//       const updatedProduct = {
+//         ...product,
+//         ratings,
+//         averageRating,
+//         totalReviews,
+//         reviews: [rest, ...product.reviews],
+//       };
 
-      const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
+//       const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
 
-      fs.writeFileSync(path.resolve('./productsTest.json'), JSON.stringify(updatedProducts), 'utf-8');
-      res.status(200).json(updatedProduct);
-    }
-  }
-}
+//       fs.writeFileSync(path.resolve('./productsTest.json'), JSON.stringify(updatedProducts), 'utf-8');
+//       res.status(200).json(updatedProduct);
+//     }
+//   }
+// }

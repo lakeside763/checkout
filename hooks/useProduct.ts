@@ -40,6 +40,10 @@ export interface ProductProps {
   product: Product;
 }
 
+export interface ProductsProps {
+  products: Product[];
+}
+
 // the list of stars and it default value used for ploting ratings graph
 const defaultRatings = {
   '5_stars': 0,
@@ -120,7 +124,7 @@ const useProductState = (data: Product) => {
   // the function send a server request for adding review to product reviews
   const addReviewRequest = async (data: AddReview) => {
     try {
-      const addReview = await fetch('https://checkout-neon.vercel.app/api/product', {
+      const addReview = await fetch('/api/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -141,7 +145,7 @@ const useProductState = (data: Product) => {
       ...product,
       reviews: [rest, ...product.reviews],
     });
-    const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews, ratings });
+    const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews });
     if (addReview) {
       setProduct({
         ...product,
