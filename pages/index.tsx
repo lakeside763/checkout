@@ -19,7 +19,7 @@ const Home = ({ products }: ProductsProps) => {
 
       <Stack as="main" align="flex-start">
         <AppNav />
-        <ProductList products={products}/>
+        <ProductList products={products} />
         <AppFooter />
       </Stack>
     </Box>
