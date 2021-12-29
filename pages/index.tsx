@@ -1,12 +1,14 @@
-import type { NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { Box, Stack } from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
-import Products from '../components/products/productList';
+import ProductList from '../components/products/productList';
 import AppFooter from '../components/common/AppFooter';
+import { PrismaClient } from '@prisma/client';
+import { ProductsProps } from '../hooks/useProduct';
 
-const Home: NextPage = () => {
+
+const Home = ({ products }: ProductsProps) => {
   return (
     <Box>
       <Head>
@@ -17,7 +19,7 @@ const Home: NextPage = () => {
 
       <Stack as="main" align="flex-start">
         <AppNav />
-        <Products />
+        <ProductList products={products} />
         <AppFooter />
       </Stack>
     </Box>
@@ -25,3 +27,14 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+
+export const getServerSideProps = async () => {
+  const prisma = new PrismaClient();
+  const products = await prisma.products.findMany({});
+  return {
+    props: {
+      products,
+    },
+  };
+};

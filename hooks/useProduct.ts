@@ -40,6 +40,10 @@ export interface ProductProps {
   product: Product;
 }
 
+export interface ProductsProps {
+  products: Product[];
+}
+
 // the list of stars and it default value used for ploting ratings graph
 const defaultRatings = {
   '5_stars': 0,

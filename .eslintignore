@@ -1,1 +1,3 @@
 node_modules/**/*
+prisma/prisma_client.ts
+next-env.d.ts

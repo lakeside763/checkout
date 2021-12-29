@@ -15,10 +15,10 @@ commands:
       - run:
           name: Bump version
           command: |
-            git config --global user.email "lakeside763@gmail.com"
-            git config --global user.name "Olalekan Idowu"
+            cd ./ && pwd
+            git config user.email "lakeside763@gmail.com"
+            git config user.name "Olalekan Idowu"
             npm version prerelease --preid=alpha
-            git add -A && git commit -m"ci: bumped version number [ci skip]" && git push
 
 jobs:
   test-app:
@@ -42,42 +42,18 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - 'e5:1a:95:3f:5b:71:d4:74:ce:1a:5e:26:02:f9:30:80'
+            - 'e6:f7:bc:4e:ef:ca:51:cc:76:23:1c:99:5c:b6:41:50'
       - run_bump_version
-  build-and-push:
-    docker:
-      - image: circleci/buildpack-deps
-    steps:
-      - checkout
-      - run:
-          name: Build and Tag image
-          command: docker-compose build
-      - run:
-          name: Docker Login
-          command: >
-            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-      - run:
-          name: Push image
-          command: docker-compose push
+
 
 workflows:
-  sample:
+  checkout_workflow:
     jobs:
       - test-app
       - bumped-version:
           name: bumped-version
           requires:
             - test-app
-          filters:
-            branches:
-              only:
-                - develop
-              ignore: /.*/
-      - build-and-push:
-          name: build-and-push
-          requires:
-            - test-app
-            - bumped-version
           filters:
             branches:
               only:
