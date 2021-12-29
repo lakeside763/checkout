@@ -814,8 +814,8 @@ exports[`product.test should render products on unchanged 1`] = `
                 />
               </svg>
               <svg
-                color="#cfdde4"
-                fill="#cfdde4"
+                color="#f59e0c"
+                fill="#f59e0c"
                 fontSize="12"
                 height="1em"
                 stroke="currentColor"
@@ -824,7 +824,7 @@ exports[`product.test should render products on unchanged 1`] = `
                 strokeWidth="2"
                 style={
                   Object {
-                    "color": "#cfdde4",
+                    "color": "#f59e0c",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -838,7 +838,7 @@ exports[`product.test should render products on unchanged 1`] = `
               <p
                 className="chakra-text css-1nz6bed"
               >
-                1 review
+                2 reviews
               </p>
             </div>
             <button
