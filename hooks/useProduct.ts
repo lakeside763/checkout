@@ -120,7 +120,7 @@ const useProductState = (data: Product) => {
   // the function send a server request for adding review to product reviews
   const addReviewRequest = async (data: AddReview) => {
     try {
-      const addReview = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`, {
+      const addReview = await fetch('/api/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
