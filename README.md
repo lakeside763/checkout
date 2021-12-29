@@ -1,7 +1,7 @@
-Checkout Product Review [`checkout.com`](https://checkout-git-feature-app-monitoring-lakeside763-gmailcom.vercel.app).
+Checkout Product Review [`checkout.com`](https://checkout-neon.vercel.app).
 
 Click on the link below to view the app on live server<br>
-[`checkout.com`](https://checkout-git-feature-app-monitoring-lakeside763-gmailcom.vercel.app)
+[`checkout.com`](https://checkout-neon.vercel.app)
 
 ## Getting Started
 
