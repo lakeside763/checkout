@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Box, SimpleGrid } from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
-import products from '../products.json';
+import products from './../public/products.json';
 import ProductDetails from '../components/products/productDetails';
 import ProductRatings from '../components/products/productRatings';
 import CustomerReviews from '../components/products/customerReviews';

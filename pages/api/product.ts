@@ -2,7 +2,7 @@ import fs from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
 import path from 'path';
 import { Product } from '../../hooks/useProduct';
-import products from '../../products.json';
+import products from './../../public/products.json';
 
 /**
  * Accept add process add review request on the server.
@@ -25,7 +25,7 @@ async function productHandler(req: NextApiRequest, res: NextApiResponse<Product>
 
       const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
 
-      fs.writeFileSync(path.resolve('./products.json'), JSON.stringify(updatedProducts), 'utf-8');
+      fs.writeFileSync(path.resolve('./public/products.json'), JSON.stringify(updatedProducts), 'utf-8');
       res.status(200).json(updatedProduct);
     }
   }
@@ -49,7 +49,7 @@ export async function productHandlerTest(req: NextApiRequest, res: NextApiRespon
 
       const updatedProducts = products.map((product: { id: string }) => (product.id === id ? updatedProduct : product));
 
-      fs.writeFileSync(path.resolve('./productsTest.json'), JSON.stringify(updatedProducts), 'utf-8');
+      fs.writeFileSync(path.resolve('./public/productsTest.json'), JSON.stringify(updatedProducts), 'utf-8');
       res.status(200).json(updatedProduct);
     }
   }
