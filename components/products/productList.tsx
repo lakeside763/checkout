@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Box, Flex, Heading, SimpleGrid, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import products from '../../products.json';
+import products from '../../public/products.json';
 import { FiStar } from 'react-icons/fi';
 
 const ProductList = () => {
