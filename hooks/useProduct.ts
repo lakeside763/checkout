@@ -122,21 +122,21 @@ const useProductState = (data: Product) => {
   }, []);
 
   // the function send a server request for adding review to product reviews
-  const addReviewRequest = async (data: AddReview) => {
-    try {
-      const addReview = await fetch('/api/product', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      return addReview.json();
-    } catch (error: any) {
-      return error.message;
-    }
-  };
+  // const addReviewRequest = async (data: AddReview) => {
+  //   try {
+  //     const addReview = await fetch('http://localhost:3000/api/product', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json',
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     return addReview.json();
+  //   } catch (error: any) {
+  //     return error.message;
+  //   }
+  // };
 
   // the function process and review request and update new values for the product
   const addReview = async ({ id, ...rest }: AddReview) => {
@@ -145,16 +145,14 @@ const useProductState = (data: Product) => {
       ...product,
       reviews: [rest, ...product.reviews],
     });
-    const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews });
-    if (addReview) {
-      setProduct({
-        ...product,
-        reviews: [rest, ...product.reviews],
-        ratings,
-        averageRating,
-        totalReviews,
-      });
-    }
+    // const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews, ratings });
+    setProduct({
+      ...product,
+      reviews: [rest, ...product.reviews],
+      ratings,
+      averageRating,
+      totalReviews,
+    });
   };
 
   return {
