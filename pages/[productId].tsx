@@ -1,12 +1,11 @@
 import React from 'react';
 import { Container, Box, SimpleGrid } from '@chakra-ui/react';
 import AppNav from '../components/common/AppNav';
-import products from '../products.json';
 import ProductDetails from '../components/products/productDetails';
 import ProductRatings from '../components/products/productRatings';
 import CustomerReviews from '../components/products/customerReviews';
 import ProductReviews from '../components/products/productReviews';
-import useProductState, { ProductContext, ProductProps } from '../hooks/useProduct';
+import useProductState, { getProducts, ProductContext, ProductProps } from '../hooks/useProduct';
 import AppFooter from '../components/common/AppFooter';
 
 const ProductId = ({ product: data }: ProductProps) => {
@@ -35,7 +34,8 @@ const ProductId = ({ product: data }: ProductProps) => {
 export default ProductId;
 
 export const getStaticProps = async ({ params }: any) => {
-  const product = products.find(({ id }) => id === params.productId);
+  const products = await getProducts();
+  const product = products.find(({ id }: any) => id === params.productId);
   return {
     props: {
       product,
@@ -44,7 +44,8 @@ export const getStaticProps = async ({ params }: any) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = products.map((product) => {
+  const products = await getProducts();
+  const paths = products.map((product: any) => {
     return {
       params: {
         productId: product.id,

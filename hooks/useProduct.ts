@@ -33,11 +33,14 @@ export interface AddReview extends Review {
   id?: string;
   averageRating?: number;
   totalReviews?: number;
-  ratings?: Rating[];
 }
 
 export interface ProductProps {
   product: Product;
+}
+
+export interface ProductsProps {
+  products: Product[];
 }
 
 // the list of stars and it default value used for ploting ratings graph
@@ -93,6 +96,23 @@ export const calculateRatings = (product: Product) => {
   };
 };
 
+// the function send a server request for adding review to product reviews
+const addReviewRequest = async (data: AddReview) => {
+  try {
+    const addReview = await fetch('https://checkout-dev-api.herokuapp.com/product/review', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return addReview.json();
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
 /**
  * represent state for managing product props
  * @param {*} data
@@ -117,23 +137,6 @@ const useProductState = (data: Product) => {
     processProductReviews();
   }, []);
 
-  // the function send a server request for adding review to product reviews
-  // const addReviewRequest = async (data: AddReview) => {
-  //   try {
-  //     const addReview = await fetch('http://localhost:3000/api/product', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json',
-  //       },
-  //       body: JSON.stringify(data),
-  //     });
-  //     return addReview.json();
-  //   } catch (error: any) {
-  //     return error.message;
-  //   }
-  // };
-
   // the function process and review request and update new values for the product
   const addReview = async ({ id, ...rest }: AddReview) => {
     rest.createdAt = Sugar.Date.medium(new Date());
@@ -141,14 +144,16 @@ const useProductState = (data: Product) => {
       ...product,
       reviews: [rest, ...product.reviews],
     });
-    // const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews, ratings });
-    setProduct({
-      ...product,
-      reviews: [rest, ...product.reviews],
-      ratings,
-      averageRating,
-      totalReviews,
-    });
+    const addReview = await addReviewRequest({ ...rest, id, averageRating, totalReviews });
+    if (addReview) {
+      setProduct({
+        ...product,
+        reviews: [rest, ...product.reviews],
+        ratings,
+        averageRating,
+        totalReviews,
+      });
+    }
   };
 
   return {
@@ -161,7 +166,6 @@ export default useProductState;
 
 // ProductContext for product component
 export const ProductContext = createContext<Product>(defaultProduct);
-
 /**
  * Represent a product
  * @return {product} for ProductContext Provider.
@@ -169,4 +173,36 @@ export const ProductContext = createContext<Product>(defaultProduct);
 export function useProduct() {
   const product = useContext(ProductContext);
   return product;
+}
+
+// Fetch products from external api
+export const getProducts = async () => {
+  try {
+    const products = await fetch('https://checkout-dev-api.herokuapp.com/product');
+    return products.json();
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
+/**
+ * Represet state management for the list of products
+ * @return {products}
+ */
+export function useProductList() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const products = await getProducts();
+      setProducts(products as any);
+    };
+
+    fetchProducts();
+  }, []);
+
+  return {
+    products,
+    setProducts,
+  };
 }
