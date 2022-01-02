@@ -1,7 +1,6 @@
 import { getProducts, addReviewRequest } from '../../hooks/useProduct';
 import products from '../../defaultProducts.json';
 
-
 const getProductsMock = jest.fn(async () => {
   const response = products.map((product) => product);
   return Promise.resolve(response);
