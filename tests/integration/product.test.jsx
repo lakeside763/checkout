@@ -1,5 +1,6 @@
-const { getProducts, addReviewRequest } = require('./../../hooks/useProduct');
-const products = require('./../../defaultProducts.json');
+import { getProducts, addReviewRequest } from '../../hooks/useProduct';
+import products from '../../defaultProducts.json';
+
 
 const getProductsMock = jest.fn(async () => {
   const response = products.map((product) => product);
