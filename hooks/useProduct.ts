@@ -96,6 +96,23 @@ export const calculateRatings = (product: Product) => {
   };
 };
 
+// the function send a server request for adding review to product reviews
+const addReviewRequest = async (data: AddReview) => {
+  try {
+    const addReview = await fetch('https://checkout-dev-api.herokuapp.com/product/review', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return addReview.json();
+  } catch (error: any) {
+    return error.message;
+  }
+};
+
 /**
  * represent state for managing product props
  * @param {*} data
@@ -119,23 +136,6 @@ const useProductState = (data: Product) => {
 
     processProductReviews();
   }, []);
-
-  // the function send a server request for adding review to product reviews
-  const addReviewRequest = async (data: AddReview) => {
-    try {
-      const addReview = await fetch('https://checkout-dev-api.herokuapp.com/product/review', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      return addReview.json();
-    } catch (error: any) {
-      return error.message;
-    }
-  };
 
   // the function process and review request and update new values for the product
   const addReview = async ({ id, ...rest }: AddReview) => {
