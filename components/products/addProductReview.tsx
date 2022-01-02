@@ -76,7 +76,7 @@ const AddProductReviewSummary = () => {
   );
 };
 
-const AddProductReviewForm = ({ addReview, onClose }: AddProductReviewProps) => {
+export const AddProductReviewForm = ({ addReview, onClose }: AddProductReviewProps) => {
   const { id } = useProduct();
   const defaultReview = {
     id,
