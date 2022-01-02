@@ -2,10 +2,10 @@ import React from 'react';
 import { Container, Box, Flex, Heading, SimpleGrid, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import products from '../../products.json';
 import { FiStar } from 'react-icons/fi';
+import { ProductsProps } from '../../hooks/useProduct';
 
-const ProductList = () => {
+const ProductList = ({ products }: ProductsProps) => {
   return (
     <Container maxW="container" px={{ base: '8', xl: '40' }}>
       <Box mt="20">

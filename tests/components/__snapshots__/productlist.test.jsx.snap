@@ -278,7 +278,7 @@ exports[`product.test should render products on unchanged 1`] = `
               <p
                 className="chakra-text css-1nz6bed"
               >
-                3 reviews
+                2 reviews
               </p>
             </div>
             <button
