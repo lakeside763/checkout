@@ -97,7 +97,7 @@ export const calculateRatings = (product: Product) => {
 };
 
 // the function send a server request for adding review to product reviews
-const addReviewRequest = async (data: AddReview) => {
+export const addReviewRequest = async (data: AddReview) => {
   try {
     const addReview = await fetch('https://checkout-dev-api.herokuapp.com/product/review', {
       method: 'POST',
@@ -136,6 +136,7 @@ const useProductState = (data: Product) => {
 
     processProductReviews();
   }, []);
+
 
   // the function process and review request and update new values for the product
   const addReview = async ({ id, ...rest }: AddReview) => {

@@ -26,6 +26,6 @@
     "components/products/customerReviews.tsx",
     "components/products/productDetails.tsx",
     "components/products/productReviews.tsx"
-  ],
+, "tests/integration/product.test.js"  ],
   "exclude": ["node_modules"]
 }
